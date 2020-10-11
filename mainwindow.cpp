@@ -16,6 +16,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::make_plot(double startMoment,
+                           double endMoment,
                            QVector<QPair<QVector<double>, QVector<double>>>& tecCRForPlot,
                            QVector<QPair<QVector<double>, QVector<double>>>& tecLRForPlot,
                            QVector<QPair<QVector<double>, QVector<double>>>& tecCGForPlot,
@@ -25,31 +26,36 @@ void MainWindow::make_plot(double startMoment,
     ui->gridLayout->addWidget(wGraphic,1,0,1,1);
     wGraphic->legend->setVisible(true);
     int i = 0;
+    int satNumber=1;
     for(auto &tecCRForPoints:tecCRForPlot){
         if(tecCRForPoints.first.size()>0){
             wGraphic->addGraph(wGraphic->xAxis, wGraphic->yAxis);
             wGraphic->graph(i)->setData(tecCRForPoints.first,tecCRForPoints.second);
-            wGraphic->graph(i)->setPen(QColor(250, 0, 50, 255));//задаем цвет точки
-            wGraphic->graph(i)->setLineStyle(QCPGraph::lsNone);//убираем линии
+            wGraphic->graph(i)->setPen(QColor(250, 0, 50, 255));
+            wGraphic->graph(i)->setLineStyle(QCPGraph::lsNone);
             wGraphic->graph(i)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc , 0.5));
-            wGraphic->graph(i)->setName("tecCR " + QString::number(i));
+            wGraphic->graph(i)->setName("tecCGLONASS " + QString::number(satNumber));
 
             i++;
         }
+        satNumber++;
     }
+
+    satNumber=1;
     for(auto &tecLRForPoints:tecLRForPlot){
         if(tecLRForPoints.first.size()>0){
-       //     qDebug()<<tecLRForPoints.first.size();
-         //   qDebug()<<tecLRForPoints.second.size();
             wGraphic->addGraph(wGraphic->xAxis, wGraphic->yAxis);
             wGraphic->graph(i)->setData(tecLRForPoints.first,tecLRForPoints.second);
-            wGraphic->graph(i)->setPen(QColor(25, 0, 50, 255));//задаем цвет точки
-            wGraphic->graph(i)->setLineStyle(QCPGraph::lsNone);//убираем линии
+            wGraphic->graph(i)->setPen(QColor(25, 0, 50, 255));
+            wGraphic->graph(i)->setLineStyle(QCPGraph::lsNone);
             wGraphic->graph(i)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc , 0.5));
-            wGraphic->graph(i)->setName("tecLR " + QString::number(i));
+            wGraphic->graph(i)->setName("tecLGLONASS " + QString::number(satNumber));
             i++;
         }
+        satNumber++;
     }
+
+    satNumber=1;
     for(auto &tecCGForPoints:tecCGForPlot){
         if(tecCGForPoints.first.size()>0){
             wGraphic->addGraph(wGraphic->xAxis, wGraphic->yAxis);
@@ -57,10 +63,13 @@ void MainWindow::make_plot(double startMoment,
             wGraphic->graph(i)->setPen(QColor(25, 0, 50, 255));//задаем цвет точки
             wGraphic->graph(i)->setLineStyle(QCPGraph::lsNone);//убираем линии
             wGraphic->graph(i)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc , 0.5));
-            wGraphic->graph(i)->setName("tecCG " + QString::number(i));
+            wGraphic->graph(i)->setName("tecCGPS " + QString::number(satNumber));
             i++;
         }
+        satNumber++;
     }
+
+    satNumber=1;
     for(auto &tecLGForPoints:tecLGForPlot){
         if(tecLGForPoints.first.size()>0){
             wGraphic->addGraph(wGraphic->xAxis, wGraphic->yAxis);
@@ -68,16 +77,17 @@ void MainWindow::make_plot(double startMoment,
             wGraphic->graph(i)->setPen(QColor(25, 0, 50, 255));//задаем цвет точки
             wGraphic->graph(i)->setLineStyle(QCPGraph::lsNone);//убираем линии
             wGraphic->graph(i)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc , 0.5));
-            wGraphic->graph(i)->setName("tecLG " + QString::number(i));
+            wGraphic->graph(i)->setName("tecLGPS " + QString::number(satNumber));
             i++;
         }
+        satNumber++;
     }
 
     wGraphic->xAxis->setLabel("time");
     wGraphic->yAxis->setLabel("tec");
 
-    wGraphic->xAxis->setRange(startMoment,startMoment+86400);
-    wGraphic->yAxis->setRange(-50,100);
+    wGraphic->xAxis->setRange(startMoment, endMoment);
+    wGraphic->yAxis->setRange(-10,40);
 
     wGraphic->replot();
 }

@@ -1,7 +1,7 @@
 TEMPLATE = app
 CONFIG += c++11 c++17
 CONFIG -= app_bundle
-#CONFIG -= qt
+CONFIG -= CONSOLE
 QT       += core gui printsupport charts
 
 INCLUDEPATH += C:\Windows\local\boost_1_74_0\boost_mingw810_32\include\boost-1_74

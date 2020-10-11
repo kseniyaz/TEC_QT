@@ -14,7 +14,6 @@
 #include <QtCharts/QDateTimeAxis>
 #include <QtCore/QFile>
 #include <QtCore/QTextStream>
-#include <QtCore/QDebug>
 #include <QtCharts/QValueAxis>
 
 #include "dep/TEClib/NFileParser.h"

@@ -93,11 +93,10 @@ opening_window::~opening_window()
 
 void opening_window::on_choose_G_Button_clicked()
 {
-     QStringList list = QFileDialog::getOpenFileNames(0, "Open Dialog", "", "*.1?g");
-     std::vector<std::string> gFileNames ;
+    QStringList list = QFileDialog::getOpenFileNames(0, "Open Dialog", "", "*.1?g");
+    std::vector<std::string> gFileNames;
 
-      for(auto elem : list){
-
+    for(auto elem : list){
           gFileNames.push_back(elem.toStdString());
           return_g_names.push_back(elem.toStdString());
           ui->g_lineEdit->insert((elem) + "...");
@@ -117,7 +116,7 @@ void opening_window::on_choose_N_Button_clicked()
 void opening_window::on_choose_o_Button_clicked()
 {
     QStringList list = QFileDialog::getOpenFileNames(0, "Open Dialog", "", "*.1?o");
-    std::vector<std::string> oFileNames ;
+    std::vector<std::string> oFileNames;
 
      for(auto elem : list){
          return_o_names.push_back(elem.toStdString());
@@ -125,10 +124,21 @@ void opening_window::on_choose_o_Button_clicked()
    }
 }
 
+void opening_window::on_choose_i_Button_clicked()
+{
+    QStringList list = QFileDialog::getOpenFileNames(0, "Open Dialog", "", "*.1?i");
+    std::vector<std::string> iFileNames;
+
+     for(auto elem : list){
+         return_i_names.push_back(elem.toStdString());
+         ui->i_lineEdit->insert((elem) + "...");
+   }
+}
+
 void opening_window::on_ok_Button_clicked()
 {
     ui->ok_Button->setEnabled(false);
-    emit this->operate(return_g_names, return_n_names, return_o_names);
+    emit this->operate(return_g_names, return_n_names, return_o_names, return_i_names);
     ui->stackedWidget->setCurrentIndex(1);
 }
 
@@ -171,7 +181,9 @@ void opening_window::on_Check_Button_clicked(){
     }
 
     auto startMoment = tecr[0].moment.getUTCTime();
-    w.make_plot(startMoment, tecCRForPlot, tecLRForPlot, tecCGForPlot, tecLGForPlot);
+    auto endMoment = tecr[tecr.size()-1].moment.getUTCTime();
+
+    w.make_plot(startMoment, endMoment,tecCRForPlot, tecLRForPlot, tecCGForPlot, tecLGForPlot);
     w.show();
 }
 
@@ -182,13 +194,4 @@ void opening_window::handleResult(std::vector<TECvalR> TECR, std::vector<TECvalG
     ui->Check_Button->setEnabled(true);
 }
 
-void opening_window::on_choose_i_Button_clicked()
-{
-    QStringList list = QFileDialog::getOpenFileNames(0, "Open Dialog", "", "*.1?i");
-    std::vector<std::string> iFileNames ;
 
-     for(auto elem : list){
-         return_i_names.push_back(elem.toStdString());
-         ui->i_lineEdit->insert((elem) + "...");
-   }
-}

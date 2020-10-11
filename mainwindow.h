@@ -22,6 +22,7 @@ public:
     ~MainWindow();
 
     void make_plot(double,
+                   double,
                     QVector<QPair<QVector<double>, QVector<double>>>&,
                    QVector<QPair<QVector<double>, QVector<double>>>&,
                    QVector<QPair<QVector<double>, QVector<double>>>&,

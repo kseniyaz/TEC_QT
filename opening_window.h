@@ -49,7 +49,7 @@ private slots:
     void on_choose_i_Button_clicked();
 
 signals:
-    void operate(std::vector<std::string>, std::vector<std::string>, std::vector<std::string>);
+    void operate(std::vector<std::string>, std::vector<std::string>, std::vector<std::string>, std::vector<std::string>);
 private:
     std::vector<TECvalR> tecr;
     std::vector<TECvalG> tecg;

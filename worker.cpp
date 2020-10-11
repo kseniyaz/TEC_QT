@@ -1,6 +1,7 @@
 #include "worker.h"
 
 void SubWorkerR::doWork(std::vector<OFileData> oFileData,
+                        std::vector<IFileData> iFileData,
                         std::vector<std::string> gFileNames){
     std::ifstream *file = new std::ifstream;
 
@@ -17,43 +18,17 @@ void SubWorkerR::doWork(std::vector<OFileData> oFileData,
 
     std::array<double, 3> point{-370700.2945,  1225384.5150, -6230930.2438};
 
-    auto TECR = TEC<TECvalR>(rSatPositions, point);
+    auto TECR = TEC(rSatPositions, point);
 
-    for(std::size_t index = 0; index < TECR[0].sat.size(); index++){
-        double diff = 0;
-        int count = 0, list = 0;
-        std::size_t i1;
-        for(std::size_t i = 0;i <TECR.size(); i++){
-            if(!isnan(TECR[i].sat[index].tecC) && !isnan(TECR[i].sat[index].tecL))
-             {
-                if(count == 0)   {
-                    i1=i;
-                }
-                  diff += (TECR[i].sat[index].tecL - TECR[i].sat[index].tecC);
-                  count ++;
-                  list = 0;
-             }
-            else
-                list++;
-            if(list > 10 && count > 1)
-            {
-                for(;i1<i;i1++){
-                    if(!isnan(TECR[i1].sat[index].tecL))
-                    {
-                        TECR[i1].sat[index].tecL -= diff/count;
-                    }
-                }
+    TECR = resolveBIAS(TECR, rSatPositions, point, iFileData);
 
-                list = 0;
-                diff = 0;
-                count = 0;
-            }
-        }
-    }
+    TECR = resolvePhaseAmbiguity(TECR);
+
     emit this->resultReady(TECR);
 }
 
 void SubWorkerG::doWork(std::vector<OFileData> oFileData,
+                        std::vector<IFileData> iFileData,
                         std::vector<std::string> nFileNames){
     std::ifstream *file = new std::ifstream;
 
@@ -70,45 +45,19 @@ void SubWorkerG::doWork(std::vector<OFileData> oFileData,
 
     std::array<double, 3> point{-370700.2945,  1225384.5150, -6230930.2438};
 
-    auto TECG = TEC<TECvalG>(gSatPositions, point);
+    auto TECG = TEC(gSatPositions, point);
 
-    for(std::size_t index = 0; index < TECG[0].sat.size(); index++){
-        double diff = 0;
-        int count = 0, list = 0;
-        std::size_t i1;
-        for(std::size_t i = 0;i <TECG.size(); i++){
-            if(!isnan(TECG[i].sat[index].tecC) && !isnan(TECG[i].sat[index].tecL))
-             {
-                if(count == 0)   {
-                    i1=i;
-                }
-                  diff += (TECG[i].sat[index].tecL - TECG[i].sat[index].tecC);
-                  count ++;
-                  list = 0;
-             }
-            else
-                list++;
-            if(list > 10 && count > 1)
-            {
-                for(;i1<i;i1++){
-                    if(!isnan(TECG[i1].sat[index].tecL))
-                    {
-                        TECG[i1].sat[index].tecL -= diff/count;
-                    }
-                }
-                //qDebug()<<diff/count;
-                list = 0;
-                diff = 0;
-                count = 0;
-            }
-        }
-    }
+    TECG = resolveBIAS(TECG, gSatPositions, point, iFileData);
+
+    TECG = resolvePhaseAmbiguity(TECG);
+
     emit this->resultReady(TECG);
 }
 
 Worker::Worker(){
 
     qRegisterMetaType<std::vector<OFileData> >("std::vector<OFileData>");
+    qRegisterMetaType<std::vector<IFileData> >("std::vector<IFileData>");
     SubWorkerR *workerR = new SubWorkerR;
     workerR->moveToThread(&workerThreadR);
 
@@ -139,7 +88,8 @@ Worker:: ~Worker(){
 
 void Worker::doWork(std::vector<std::string> gFileNames,
                     std::vector<std::string> nFileNames,
-                    std::vector<std::string> oFileNames){
+                    std::vector<std::string> oFileNames,
+                    std::vector<std::string> iFileNames){
     std::ifstream *file = new std::ifstream;
 
     std::vector<OFileData> oFileData;
@@ -151,8 +101,17 @@ void Worker::doWork(std::vector<std::string> gFileNames,
         file->close();
     }
 
-    emit this->operateR(oFileData, gFileNames);
-    emit this->operateG(oFileData, nFileNames);
+    std::vector<IFileData> iFileData;
+
+    for (auto name: iFileNames){
+        file->open(name);
+        auto _iFileData = parseIFile(file);
+        iFileData.insert(iFileData.end(), _iFileData.begin(), _iFileData.end());
+        file->close();
+    }
+
+    emit this->operateR(oFileData, iFileData, gFileNames);
+    emit this->operateG(oFileData, iFileData, nFileNames);
 }
 
 void Worker::handleResultG(std::vector<TECvalG> TECG){
