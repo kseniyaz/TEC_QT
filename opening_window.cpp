@@ -1,7 +1,8 @@
 #include "opening_window.h"
 #include "ui_opening_window.h"
- #include<vector>
-#include <QDebug>
+
+#include<vector>
+
 #include <QPair>
 
 opening_window::opening_window(QWidget *parent) :
@@ -179,4 +180,15 @@ void opening_window::handleResult(std::vector<TECvalR> TECR, std::vector<TECvalG
     this->tecr = TECR;
     this->tecg = TECG;
     ui->Check_Button->setEnabled(true);
+}
+
+void opening_window::on_choose_i_Button_clicked()
+{
+    QStringList list = QFileDialog::getOpenFileNames(0, "Open Dialog", "", "*.1?i");
+    std::vector<std::string> iFileNames ;
+
+     for(auto elem : list){
+         return_i_names.push_back(elem.toStdString());
+         ui->i_lineEdit->insert((elem) + "...");
+   }
 }

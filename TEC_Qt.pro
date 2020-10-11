@@ -1,46 +1,46 @@
 TEMPLATE = app
-CONFIG += console c++11 c++17
+CONFIG += c++11 c++17
 CONFIG -= app_bundle
 #CONFIG -= qt
-QT       += core gui printsupport
-
-QT += charts
+QT       += core gui printsupport charts
 
 INCLUDEPATH += C:\Windows\local\boost_1_74_0\boost_mingw810_32\include\boost-1_74
 LIBS += -LC:\Windows\local\boost_1_74_0\boost_mingw810_32\lib\
         -llibboost_date_time-mgw8-mt-x32-1_74
 
 SOURCES += \
-    GFileParser.cpp \
-    IFileParser.cpp \
-    NFileParser.cpp \
-    OFileParser.cpp \
-    dateTime.cpp \
+    dep/TEClib/GFileParser.cpp \
+    dep/TEClib/IFileParser.cpp \
+    dep/TEClib/NFileParser.cpp \
+    dep/TEClib/OFileParser.cpp \
+    dep/TEClib/Tec.cpp \
+    dep/TEClib/dateTime.cpp \
+    dep/TEClib/models.cpp \
+    dep/TEClib/utils.cpp \
         main.cpp \
     mainwindow.cpp \
-    models.cpp \
     opening_window.cpp \
     qcustomplot.cpp \
-    utils.cpp \
     worker.cpp
 
 
 DISTFILES += \
     .gitignore \
-    TEC_Qt.pro.user
+    TEC_Qt.pro.user \
+    dep/TEClib/.gitignore
 
 HEADERS += \
-    GFileParser.h \
-    IFileParser.h \
-    NFileParser.h \
-    OFileParser.h \
-    Tec.h \
-    dateTime.h \
+    dep/TEClib/GFileParser.h \
+    dep/TEClib/IFileParser.h \
+    dep/TEClib/NFileParser.h \
+    dep/TEClib/OFileParser.h \
+    dep/TEClib/Tec.h \
+    dep/TEClib/dateTime.h \
+    dep/TEClib/models.h \
+    dep/TEClib/utils.h \
     mainwindow.h \
-    models.h \
     opening_window.h \
     qcustomplot.h \
-    utils.h \
     worker.h
 
 FORMS += \

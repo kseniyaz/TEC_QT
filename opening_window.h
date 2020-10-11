@@ -1,22 +1,19 @@
 #ifndef OPENING_WINDOW_H
 #define OPENING_WINDOW_H
 
-#include <QApplication>
-#include <QFileDialog >
-#include <QMainWindow>
-#include <QDebug>
-#include <QThread>
-#include <QPointer>
-#include <QCheckBox>
-
 #include <iostream>
 #include <fstream>
 #include <string>
 
+#include <QApplication>
+#include <QFileDialog >
+#include <QMainWindow>
+#include <QThread>
+#include <QPointer>
+#include <QCheckBox>
+
 #include "mainwindow.h"
 #include "worker.h"
-
-
 
 Q_DECLARE_METATYPE(std::vector<std::string>)
 Q_DECLARE_METATYPE(QVector<double>)
@@ -38,6 +35,7 @@ public:
     std::vector<std::string> return_g_names;
     std::vector<std::string> return_n_names;
     std::vector<std::string> return_o_names;
+    std::vector<std::string> return_i_names;
 
     int number_of_satellite;
     QVector<double> tecC_forPlot, tecL_forPlot,time_forPlot;
@@ -48,6 +46,8 @@ private slots:
     void on_ok_Button_clicked();
     void on_Check_Button_clicked();
     void handleResult(std::vector<TECvalR>, std::vector<TECvalG>);
+    void on_choose_i_Button_clicked();
+
 signals:
     void operate(std::vector<std::string>, std::vector<std::string>, std::vector<std::string>);
 private:

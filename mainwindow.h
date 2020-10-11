@@ -1,10 +1,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "dateTime.h"
+
 #include <QMainWindow>
-#include <qcustomplot.h>
-#include <QDebug>
 #include <QVector>
+#include <QFont>
+
+#include <qcustomplot.h>
+#include "dep/TEClib/dateTime.h"
 
 namespace Ui {
 class MainWindow;

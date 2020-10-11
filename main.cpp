@@ -1,13 +1,8 @@
-#include <fstream>
 #include "opening_window.h"
 #include "mainwindow.h"
-#include "NFileParser.h"
-#include "GFileParser.h"
-#include "OFileParser.h"
-#include "IFileParser.h"
-#include "models.h"
+
+#include <fstream>
 #include <algorithm>
-#include "Tec.h"
 
 #include <QThread>
 #include <QVector>
@@ -21,6 +16,13 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QDebug>
 #include <QtCharts/QValueAxis>
+
+#include "dep/TEClib/NFileParser.h"
+#include "dep/TEClib/GFileParser.h"
+#include "dep/TEClib/OFileParser.h"
+#include "dep/TEClib/IFileParser.h"
+#include "dep/TEClib/models.h"
+#include "dep/TEClib/Tec.h"
 
 QT_CHARTS_USE_NAMESPACE
 

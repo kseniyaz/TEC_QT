@@ -1,18 +1,20 @@
 #ifndef WORKER_H
 #define WORKER_H
-#include <QObject>
-#include <QThread>
 
 #include <fstream>
 #include <string>
-#include "mainwindow.h"
-#include "NFileParser.h"
-#include "GFileParser.h"
-#include "OFileParser.h"
-#include "IFileParser.h"
-#include "models.h"
 #include <algorithm>
-#include "Tec.h"
+
+#include <QObject>
+#include <QThread>
+
+#include "mainwindow.h"
+#include "dep/TEClib/NFileParser.h"
+#include "dep/TEClib/GFileParser.h"
+#include "dep/TEClib/OFileParser.h"
+#include "dep/TEClib/IFileParser.h"
+#include "dep/TEClib/models.h"
+#include "dep/TEClib/Tec.h"
 
 Q_DECLARE_METATYPE(std::vector<OFileData>)
 

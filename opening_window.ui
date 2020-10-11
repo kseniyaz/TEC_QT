@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>306</width>
-    <height>465</height>
+    <width>278</width>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -73,74 +73,94 @@ QPushButton:hover {
  margin-top: 1ex; /* leave space at the top for the title */
 }</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QStackedWidget" name="stackedWidget">
-      <property name="currentIndex">
-       <number>1</number>
-      </property>
-      <widget class="QWidget" name="page">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>258</width>
+      <height>409</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <item>
-           <widget class="QPushButton" name="choose_N_Button">
-            <property name="text">
-             <string>choose  .**N file</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="n_lineEdit"/>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QPushButton" name="choose_G_Button">
-            <property name="text">
-             <string>choose  .**G file</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="g_lineEdit"/>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-           <widget class="QPushButton" name="choose_o_Button">
-            <property name="text">
-             <string>choose  .**o file</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="o_lineEdit"/>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="QPushButton" name="ok_Button">
+         <widget class="QPushButton" name="choose_N_Button">
           <property name="text">
-           <string>Calculate</string>
+           <string>choose  .**N file</string>
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QLineEdit" name="n_lineEdit"/>
+        </item>
        </layout>
-      </widget>
-      <widget class="QWidget" name="page_2">
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="choose_G_Button">
+          <property name="text">
+           <string>choose  .**G file</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="g_lineEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="choose_o_Button">
+          <property name="text">
+           <string>choose  .**o file</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="o_lineEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QPushButton" name="choose_i_Button">
+          <property name="text">
+           <string>choose  .**i file</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="i_lineEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ok_Button">
+        <property name="text">
+         <string>Calculate</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
      border: 2px solid #8f8f91;
      border-radius: 6px;
      background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
@@ -188,463 +208,461 @@ QPushButton:hover {
                                        stop: 0 #f6f7fa, stop: 1 #dadbde);
      min-width: 80px;
 }</string>
-       </property>
-       <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0" rowspan="2">
-         <widget class="QGroupBox" name="groupBox_2">
-          <property name="title">
-           <string>GPS</string>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0" rowspan="2">
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>GPS</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout_4">
-               <item>
-                <widget class="QCheckBox" name="checkBox_G1">
-                 <property name="text">
-                  <string>G1</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G2">
-                 <property name="text">
-                  <string>G2</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G3">
-                 <property name="text">
-                  <string>G3</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G4">
-                 <property name="text">
-                  <string>G4</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G5">
-                 <property name="text">
-                  <string>G5</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G6">
-                 <property name="text">
-                  <string>G6</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G7">
-                 <property name="text">
-                  <string>G7</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G8">
-                 <property name="text">
-                  <string>G8</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G9">
-                 <property name="text">
-                  <string>G9</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G10">
-                 <property name="text">
-                  <string>G10</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G11">
-                 <property name="text">
-                  <string>G11</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G12">
-                 <property name="text">
-                  <string>G12</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G13">
-                 <property name="text">
-                  <string>G13</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G14">
-                 <property name="text">
-                  <string>G14</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G15">
-                 <property name="text">
-                  <string>G15</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G16">
-                 <property name="text">
-                  <string>G16</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_3">
-               <item>
-                <widget class="QCheckBox" name="checkBox_G17">
-                 <property name="text">
-                  <string>G17</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G18">
-                 <property name="text">
-                  <string>G18</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G19">
-                 <property name="text">
-                  <string>G19</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G20">
-                 <property name="text">
-                  <string>G20</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G21">
-                 <property name="text">
-                  <string>G21</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G22">
-                 <property name="text">
-                  <string>G22</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G23">
-                 <property name="text">
-                  <string>G23</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G24">
-                 <property name="text">
-                  <string>G24</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G25">
-                 <property name="text">
-                  <string>G25</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G26">
-                 <property name="text">
-                  <string>G26</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G27">
-                 <property name="text">
-                  <string>G27</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G28">
-                 <property name="text">
-                  <string>G28</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G29">
-                 <property name="text">
-                  <string>G29</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G30">
-                 <property name="text">
-                  <string>G30</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G31">
-                 <property name="text">
-                  <string>G31</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBox_G32">
-                 <property name="text">
-                  <string>G32</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="Check_Button">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Ok</string>
-          </property>
-          <property name="default">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QGroupBox" name="groupBox">
-          <property name="title">
-           <string>GLONASS</string>
-          </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_5">
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_5">
-             <item>
-              <widget class="QCheckBox" name="checkBox_R1">
+              <widget class="QCheckBox" name="checkBox_G1">
                <property name="text">
-                <string>R1</string>
+                <string>G1</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R2">
+              <widget class="QCheckBox" name="checkBox_G2">
                <property name="text">
-                <string>R2</string>
+                <string>G2</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R3">
+              <widget class="QCheckBox" name="checkBox_G3">
                <property name="text">
-                <string>R3</string>
+                <string>G3</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R4">
+              <widget class="QCheckBox" name="checkBox_G4">
                <property name="text">
-                <string>R4</string>
+                <string>G4</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R5">
+              <widget class="QCheckBox" name="checkBox_G5">
                <property name="text">
-                <string>R5</string>
+                <string>G5</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R6">
+              <widget class="QCheckBox" name="checkBox_G6">
                <property name="text">
-                <string>R6</string>
+                <string>G6</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R7">
+              <widget class="QCheckBox" name="checkBox_G7">
                <property name="text">
-                <string>R7</string>
+                <string>G7</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R8">
+              <widget class="QCheckBox" name="checkBox_G8">
                <property name="text">
-                <string>R8</string>
+                <string>G8</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R9">
+              <widget class="QCheckBox" name="checkBox_G9">
                <property name="text">
-                <string>R9</string>
+                <string>G9</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R10">
+              <widget class="QCheckBox" name="checkBox_G10">
                <property name="text">
-                <string>R10</string>
+                <string>G10</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R11">
+              <widget class="QCheckBox" name="checkBox_G11">
                <property name="text">
-                <string>R11</string>
+                <string>G11</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R12">
+              <widget class="QCheckBox" name="checkBox_G12">
                <property name="text">
-                <string>R12</string>
+                <string>G12</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_G13">
+               <property name="text">
+                <string>G13</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_G14">
+               <property name="text">
+                <string>G14</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_G15">
+               <property name="text">
+                <string>G15</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_G16">
+               <property name="text">
+                <string>G16</string>
                </property>
               </widget>
              </item>
             </layout>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout_6">
+            <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
-              <widget class="QCheckBox" name="checkBox_R13">
+              <widget class="QCheckBox" name="checkBox_G17">
                <property name="text">
-                <string>R13</string>
+                <string>G17</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R14">
+              <widget class="QCheckBox" name="checkBox_G18">
                <property name="text">
-                <string>R14</string>
+                <string>G18</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R15">
+              <widget class="QCheckBox" name="checkBox_G19">
                <property name="text">
-                <string>R15</string>
+                <string>G19</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R16">
+              <widget class="QCheckBox" name="checkBox_G20">
                <property name="text">
-                <string>R16</string>
+                <string>G20</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R17">
+              <widget class="QCheckBox" name="checkBox_G21">
                <property name="text">
-                <string>R17</string>
+                <string>G21</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R18">
+              <widget class="QCheckBox" name="checkBox_G22">
                <property name="text">
-                <string>R18</string>
+                <string>G22</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R19">
+              <widget class="QCheckBox" name="checkBox_G23">
                <property name="text">
-                <string>R19</string>
+                <string>G23</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R20">
+              <widget class="QCheckBox" name="checkBox_G24">
                <property name="text">
-                <string>R20</string>
+                <string>G24</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R21">
+              <widget class="QCheckBox" name="checkBox_G25">
                <property name="text">
-                <string>R21</string>
+                <string>G25</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R22">
+              <widget class="QCheckBox" name="checkBox_G26">
                <property name="text">
-                <string>R22</string>
+                <string>G26</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R23">
+              <widget class="QCheckBox" name="checkBox_G27">
                <property name="text">
-                <string>R23</string>
+                <string>G27</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QCheckBox" name="checkBox_R24">
+              <widget class="QCheckBox" name="checkBox_G28">
                <property name="text">
-                <string>R24</string>
+                <string>G28</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_G29">
+               <property name="text">
+                <string>G29</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_G30">
+               <property name="text">
+                <string>G30</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_G31">
+               <property name="text">
+                <string>G31</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_G32">
+               <property name="text">
+                <string>G32</string>
                </property>
               </widget>
              </item>
             </layout>
            </item>
           </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
-    </item>
-   </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="Check_Button">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Ok</string>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>GLONASS</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QCheckBox" name="checkBox_R1">
+             <property name="text">
+              <string>R1</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R2">
+             <property name="text">
+              <string>R2</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R3">
+             <property name="text">
+              <string>R3</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R4">
+             <property name="text">
+              <string>R4</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R5">
+             <property name="text">
+              <string>R5</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R6">
+             <property name="text">
+              <string>R6</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R7">
+             <property name="text">
+              <string>R7</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R8">
+             <property name="text">
+              <string>R8</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R9">
+             <property name="text">
+              <string>R9</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R10">
+             <property name="text">
+              <string>R10</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R11">
+             <property name="text">
+              <string>R11</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R12">
+             <property name="text">
+              <string>R12</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QCheckBox" name="checkBox_R13">
+             <property name="text">
+              <string>R13</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R14">
+             <property name="text">
+              <string>R14</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R15">
+             <property name="text">
+              <string>R15</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R16">
+             <property name="text">
+              <string>R16</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R17">
+             <property name="text">
+              <string>R17</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R18">
+             <property name="text">
+              <string>R18</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R19">
+             <property name="text">
+              <string>R19</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R20">
+             <property name="text">
+              <string>R20</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R21">
+             <property name="text">
+              <string>R21</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R22">
+             <property name="text">
+              <string>R22</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R23">
+             <property name="text">
+              <string>R23</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox_R24">
+             <property name="text">
+              <string>R24</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>306</width>
+     <width>278</width>
      <height>18</height>
     </rect>
    </property>
