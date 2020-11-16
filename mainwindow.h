@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QVector>
 #include <QFont>
+#include <QStatusBar>
 
 #include <qcustomplot.h>
 #include "dep/TEClib/dateTime.h"

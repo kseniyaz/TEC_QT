@@ -25,6 +25,7 @@ void MainWindow::make_plot(double startMoment,
     wGraphic = new QCustomPlot();
     ui->gridLayout->addWidget(wGraphic,1,0,1,1);
     wGraphic->legend->setVisible(true);
+    //wGraphic->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignLeft|Qt::AlignBottom);
     int i = 0;
     int satNumber=1;
     for(auto &tecCRForPoints:tecCRForPlot){
@@ -60,7 +61,7 @@ void MainWindow::make_plot(double startMoment,
         if(tecCGForPoints.first.size()>0){
             wGraphic->addGraph(wGraphic->xAxis, wGraphic->yAxis);
             wGraphic->graph(i)->setData(tecCGForPoints.first,tecCGForPoints.second);
-            wGraphic->graph(i)->setPen(QColor(25, 0, 50, 255));//задаем цвет точки
+            wGraphic->graph(i)->setPen(QColor(0, 150, 0, 255));//задаем цвет точки
             wGraphic->graph(i)->setLineStyle(QCPGraph::lsNone);//убираем линии
             wGraphic->graph(i)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc , 0.5));
             wGraphic->graph(i)->setName("tecCGPS " + QString::number(satNumber));
@@ -74,7 +75,7 @@ void MainWindow::make_plot(double startMoment,
         if(tecLGForPoints.first.size()>0){
             wGraphic->addGraph(wGraphic->xAxis, wGraphic->yAxis);
             wGraphic->graph(i)->setData(tecLGForPoints.first,tecLGForPoints.second);
-            wGraphic->graph(i)->setPen(QColor(25, 0, 50, 255));//задаем цвет точки
+            wGraphic->graph(i)->setPen(QColor(0, 175, 150, 255));//задаем цвет точки
             wGraphic->graph(i)->setLineStyle(QCPGraph::lsNone);//убираем линии
             wGraphic->graph(i)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc , 0.5));
             wGraphic->graph(i)->setName("tecLGPS " + QString::number(satNumber));
@@ -87,7 +88,7 @@ void MainWindow::make_plot(double startMoment,
     wGraphic->yAxis->setLabel("tec");
 
     wGraphic->xAxis->setRange(startMoment, endMoment);
-    wGraphic->yAxis->setRange(-10,40);
+    wGraphic->yAxis->setRange(-20,100);
 
     wGraphic->replot();
 }

@@ -48,6 +48,10 @@ private slots:
     void handleResult(std::vector<TECvalR>, std::vector<TECvalG>);
     void on_choose_i_Button_clicked();
 
+    void on_checkBox_stateChanged(int arg1);
+
+    void on_checkBox_2_stateChanged(int arg1);
+
 signals:
     void operate(std::vector<std::string>, std::vector<std::string>, std::vector<std::string>, std::vector<std::string>);
 private:

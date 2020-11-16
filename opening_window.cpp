@@ -82,6 +82,7 @@ opening_window::opening_window(QWidget *parent) :
      rCheckBoxes.append(ui->checkBox_R22);
      rCheckBoxes.append(ui->checkBox_R23);
      rCheckBoxes.append(ui->checkBox_R24);
+
 }
 
 opening_window::~opening_window()
@@ -140,9 +141,11 @@ void opening_window::on_ok_Button_clicked()
     ui->ok_Button->setEnabled(false);
     emit this->operate(return_g_names, return_n_names, return_o_names, return_i_names);
     ui->stackedWidget->setCurrentIndex(1);
+    statusBar()->showMessage(tr("Computing..."));
 }
 
 void opening_window::on_Check_Button_clicked(){
+
     QVector<QPair<QVector<double>, QVector<double>>> tecCRForPlot(24);
     QVector<QPair<QVector<double>, QVector<double>>> tecLRForPlot(24);
     QVector<QPair<QVector<double>, QVector<double>>> tecCGForPlot(32);
@@ -150,6 +153,7 @@ void opening_window::on_Check_Button_clicked(){
 
     for(auto &tecrval: tecr){
         auto moment = tecrval.moment.getUTCTime();
+
         for(int i=0; i<rCheckBoxes.size(); i++){
             if(rCheckBoxes[i]->isChecked()){
                 if(!std::isnan(tecrval.sat[i].tecC)){
@@ -192,6 +196,38 @@ void opening_window::handleResult(std::vector<TECvalR> TECR, std::vector<TECvalG
     this->tecr = TECR;
     this->tecg = TECG;
     ui->Check_Button->setEnabled(true);
+    statusBar()->clearMessage();
 }
 
 
+
+void opening_window::on_checkBox_stateChanged(int arg1)
+{
+
+    if(ui->checkBox->isChecked()){
+        for(int i=0; i<rCheckBoxes.size(); i++){
+            rCheckBoxes[i]->setChecked(true);
+        }
+    }
+    else
+    {
+        for(int i=0; i<rCheckBoxes.size(); i++){
+            rCheckBoxes[i]->setChecked(false);
+        }
+    }
+}
+
+void opening_window::on_checkBox_2_stateChanged(int arg1)
+{
+    if(ui->checkBox_2->isChecked()){
+        for(int i=0; i<gCheckBoxes.size(); i++){
+            gCheckBoxes[i]->setChecked(true);
+        }
+    }
+    else
+    {
+        for(int i=0; i<gCheckBoxes.size(); i++){
+            gCheckBoxes[i]->setChecked(false);
+        }
+    }
+}
